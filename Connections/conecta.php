@@ -3,7 +3,7 @@
 # Type="MYSQL"
 # HTTP="true"
 $hostname_conecta = "localhost";
-$database_conecta = "lajes_patagonia";
+$database_conecta = "maquinas";
 $username_conecta = "root";
 $password_conecta = "";
 $conecta = mysqli_connect($hostname_conecta, $username_conecta, $password_conecta, $database_conecta) or trigger_error(mysqli_error(),E_USER_ERROR); 
