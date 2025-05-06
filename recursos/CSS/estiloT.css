@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    height: 100vh;
+    background: linear-gradient(to bottom, #0D400B, #197316);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    color: white;
+  }
+
+  body::before {
+    content: "";
+    position: absolute;
+    background: url('/mnt/data/b5510a54-0b18-4c22-affc-ad571c1b7cc5.png') no-repeat center;
+    background-size: 40%;
+    opacity: 0.07;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
+
+  .login-container {
+    position: relative;
+    z-index: 1;
+    background: rgba(191, 182, 164, 0.15);
+    padding: 40px;
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    width: 350px;
+  }
+
+  .login-container h1 {
+    text-align: center;
+    color: #F2CB05;
+    margin-bottom: 30px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #BFB6A4;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #A6864B;
+    border-radius: 8px;
+    background-color: #BFB6A4;
+    color: #000;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #A6864B;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background-color: #F2CB05;
+    color: #0D400B;
+  }
+
+  .forgot-password {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .forgot-password a {
+    color: #F2CB05;
+    text-decoration: none;
+    font-size: 0.9em;
+  }
