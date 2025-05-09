@@ -21,6 +21,27 @@ $result = mysqli_stmt_get_result($stmt);
 
 if ($row = mysqli_fetch_assoc($result)) {
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="recursos/img/iconLajes.png">
+    <link rel="stylesheet" href="recursos/CSS/estiloHome.css">
+    <link rel="stylesheet" href="recursos/CSS/cadastro.css">
+    <title>Lista de Máquinas</title>
+</head>
+
+<body>
+    <header class="cabecalho"></header>
+    <main class="principal">
+    <div class="navbar">
+        <a href="Home.php">Home</a>
+        <a href="cadastro.php">Cadastrar</a>
+        <a href="logout.php">Sair</a>
+        <h3 class="nome-direita">Bem-vindo, <?php echo $_SESSION['usuario']; ?>!</h3>
+    </div>
     <h2>Editar Máquina</h2>
     <form method="post" action="atualizar.php">
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">

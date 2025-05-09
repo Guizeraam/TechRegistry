@@ -27,13 +27,17 @@ $result = mysqli_query($conecta, $query);
     <div class="navbar">
         <a href="Home.php">Home</a>
         <a href="pag-cadastro.php">Cadastrar</a>
+        <a href="PROGRAMACAO/INDEX.php">Programação</a>
+        <a href="MATRICULAS/INDEX.php">Matriculas</a>
         <a href="logout.php">Sair</a>
         <h3 class="nome-direita">Bem-vindo, <?php echo $_SESSION['usuario']; ?>!</h3>
     </div>
-        <div class="conteudo">  
-                <table class="table">
+    
+        <div class="conteudo"> 
+        <table class="table">
                 <thead>
                     <tr>
+                    <th scope="col">Património</th>
                     <th scope="col">Nome da máquina</th>
                     <th scope="col">Nome - setor</th>
                     <th scope="col">Modelo</th>
@@ -52,10 +56,12 @@ $result = mysqli_query($conecta, $query);
                     <th scope="col">Ações</th>
                      </tr>
                 </thead>
-            <tbody>
+            <tbody>  
+             
                 <?php
                     while($user_data = mysqli_fetch_assoc($result)) {
                         echo "<tr>";
+                        echo "<td>". $user_data["patrimonio"] . "</td>";
                         echo "<td>". $user_data["nome_maquina"] . "</td>";
                         echo "<td>". $user_data["nome_usr_setor"] . "</td>";
                         echo "<td>". $user_data["modelo"] . "</td>";

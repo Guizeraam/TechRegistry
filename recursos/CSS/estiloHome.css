@@ -32,16 +32,16 @@ body {
 .principal {
   grid-area: principal;
   background-color: #f9f1e1;
-  padding: 10px;
+  padding-bottom: 5px;
   overflow-y: scroll;
   /* max-width: 100vw; */
 }
 
 .conteudo {
   background-color: #a8a092;
-  padding: 8px;
+  padding: 5px;
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.2);
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   overflow-x: scroll;
   height: 450px;
 }
@@ -72,7 +72,6 @@ hr {
   font-family: "Ubuntu", Arial, serif; 
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 10px;
   display: flex;
   align-items: center;
 }
@@ -95,6 +94,7 @@ hr {
   color: #ffffff;
   font-size: 1rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-right: 15px;
 }
 
 table {

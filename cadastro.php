@@ -1,8 +1,15 @@
 <?php
 require("Connections/conecta.php");
 
+function normalizaSimNao($valor) {
+    $valor = strtolower(trim($valor));
+    return ($valor === 'sim') ? 'Sim' : 'Não';
+}
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Recebe os dados do formulário
+    $patrimonio = $_POST['patrimonio'];
     $nome_maquina = $_POST['nome_maquina'];
     $nome_usr_setor = $_POST['nome_usr_setor'];
     $modelo = $_POST['modelo'];
@@ -13,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mac_wifi = $_POST['mac_wifi'];
     $st = $_POST['st'];
     $anydesk = $_POST['anydesk'];
-    $user_ad = $_POST['user_ad'];
+    $user_ad = normalizaSimNao($_POST['user_ad']);
+    // $user_ad = ucfirst(strtolower(trim($_POST['user_ad']))); // força a formatar como "Sim" ou "Não"
+    // $user_ad = $_POST['user_ad'];
     $certificados = $_POST['certificados'];
     $licenca_terceiros = $_POST['licenca_terceiros'];
     $etiqueta = $_POST['etiqueta'];
@@ -21,16 +30,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Prepara e executa a query
     $query = "INSERT INTO maquinas (
-        nome_maquina, nome_usr_setor, modelo, programas, especificacoes, ip,
+        patrimonio, nome_maquina, nome_usr_setor, modelo, programas, especificacoes, ip,
         mac_ethernet, mac_wifi, st, anydesk, user_ad, certificados,
         licenca_terceiros, etiqueta, ramal
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = mysqli_prepare($conecta, $query);
 
     if ($stmt) {
-        mysqli_stmt_bind_param($stmt, 'sssssssssssssss',
-            $nome_maquina, $nome_usr_setor, $modelo, $programas, $especificacoes,
+        mysqli_stmt_bind_param($stmt, 'ssssssssssssssss',
+        $patrimonio, $nome_maquina, $nome_usr_setor, $modelo, $programas, $especificacoes,
             $ip, $mac_ethernet, $mac_wifi, $st, $anydesk, $user_ad,
             $certificados, $licenca_terceiros, $etiqueta, $ramal
         );

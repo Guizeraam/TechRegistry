@@ -12,12 +12,12 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
 if ($user = mysqli_fetch_assoc($result)) {
-    if (password_verify($senha, $user['senha'])) {
+    if ($senha==$user['senha']) {
         $_SESSION['usuario'] = $user['usuario'];
         header("Location: ../home.php");
         exit();
     } else {
-        echo "Senha incorreta.";
+        echo "Senha incorreta. ";
     }
 } else {
     echo "Usuário não encontrado.";
